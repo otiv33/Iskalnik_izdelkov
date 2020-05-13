@@ -14,14 +14,20 @@
 
 <h1>Dodaj izdelek</h1>
 
-<form action="product_add_db.php" method="POST" class="form-group">
+<form action="product_add_db.php" method="POST" class="form-group" enctype="multipart/form-data">
     <input type="text" name="product_title" required="required" placeholder="Vnesi naslov" class="form-control"/><br/>
     <input type="text" name="description" required="required" placeholder="Vnesi opis" class="form-control"/><br/>
     <input type="number" name="price" step="0.01" min="0" max="1000000000000000" required="required" placeholder="Vnesi ceno" class="form-control"/><br/>
     <input type="hidden" name="store_id" value="<?php echo $store_id ?>" class="form-control"/>
     <input type="hidden" name="user_id" value="<?php echo $user_id ?>" class="form-control"/>
+    <div class="flexbox">
+        <text>Izberi sliko : </text>
+        <input type="file" name="product_image" id="product_image" /> <br />
+        <br/>
+        <input type="text" name="product_image_description" placeholder="Vnesi opis slike"/><br />
+    </div>
     <input type="hidden" name="date_add" value="<?php echo $date_add ?>" class="form-control"/>
-    <input type="hidden" name="date_modify" value="<?php echo $date_modify ?>" class="form-control"/>
+    <input type="hidden" name="date_modify" value="<?php echo $date_modify ?>" class="form-control"/></br>
     <input type="submit" value="Dodaj" class="form-control"/><br/>
 </form>
 

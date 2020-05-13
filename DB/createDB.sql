@@ -42,6 +42,8 @@ CREATE TABLE products (
     price DECIMAL(13,2) NOT NULL,
     store_id INT NOT NULL,
     user_id INT NOT NULL,
+    product_image VARCHAR(255),
+    product_image_description VARCHAR(255),
     online_store_product_url VARCHAR(255),
     date_add Timestamp NOT NULL,
     date_modify Timestamp NOT NULL,
@@ -49,6 +51,17 @@ CREATE TABLE products (
     FOREIGN KEY (user_id) REFERENCES users(id_user)
     ON DELETE RESTRICT ON UPDATE RESTRICT,
     FOREIGN KEY (store_id) REFERENCES stores(id_store)
+    ON DELETE RESTRICT ON UPDATE RESTRICT
+);
+
+CREATE TABLE favourites (
+    id_favourite INT NOT NULL AUTO_INCREMENT,
+    product_id INT NOT NULL,
+    user_id INT NOT NULL,
+    PRIMARY KEY (id_favourite),
+    FOREIGN KEY (product_id) REFERENCES products(id_product)
+    ON DELETE RESTRICT ON UPDATE RESTRICT,
+    FOREIGN KEY (user_id) REFERENCES users(id_user)
     ON DELETE RESTRICT ON UPDATE RESTRICT
 );
 

@@ -1,11 +1,8 @@
 <?php
-    include_once "session.php";
+    //include_once "session.php";
     include_once "db.php";
 
-    $product_image;
-
-    include_once "product_image_upload.php"; //we define product image here
-    $product_image;
+    include "product_image_upload.php"; //we define product image here
 
     $product_title = $_POST['product_title'];
     $description = $_POST['description'];

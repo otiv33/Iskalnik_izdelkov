@@ -1,11 +1,15 @@
 <?php
     include_once "session.php";
-    include_once "alert.php";
+    //include_once "alert.php";
     include_once "db.php";
 
     $email = $_POST['email'];
     $pass = $_POST['pass'];
-    $name = $_POST['name'];
+    if(isset($_POST['name'])){
+        $name = $_POST['name'];
+    }else{
+        $name = null;
+    }
 
     if(!empty($email) && !empty($pass)){
         $query = "SELECT * FROM users WHERE email = ?";
@@ -28,16 +32,16 @@
                 $_SESSION['user_type'] = $user_type['type'];
                 
                 if(!empty($name) && $_SESSION['user_type'] == "Store owner"){
-                    alert("Registration successfull, you will be automatically logged in.\n You will be redirected to the store registration site.");
+                    //alert("Registration successfull, you will be automatically logged in.\n You will be redirected to the store registration site.");
                     header("Location: register_store.php");
                     die();
                 }else if (!empty($name)){
-                    alert("Registration successfull, you will be automatically logged in.");
+                    //alert("Registration successfull, you will be automatically logged in.");
                     header("Location: index.php");
                     die();
                 }
                 else{
-                    alert("You have been successfully logged in.");
+                    //alert("You have been successfully logged in.");
                     header("Location: index.php");
                     die();
                 }

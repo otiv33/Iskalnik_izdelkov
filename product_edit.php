@@ -6,9 +6,15 @@
     $user_id = $_SESSION['user_id'];
     $date_modify = date('Y-m-d h:m:s');
 
-    $query = "SELECT * FROM products WHERE id_product = ? AND user_id = ?;";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute([$product_id,$user_id]);
+    if(is_admin()){
+        $query = "SELECT * FROM products WHERE id_product = ?;";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([$product_id]);
+    }else{
+        $query = "SELECT * FROM products WHERE id_product = ? AND user_id = ?;";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([$product_id,$user_id]);
+    }
     
     $prod = $stmt->fetch();
     echo $prod['product_title']

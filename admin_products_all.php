@@ -2,31 +2,24 @@
     include_once "header.php";
     include_once "db.php";
     
+    adminOnly();
+
     $user_id = $_SESSION['user_id'];
 
-    $query = "SELECT verified FROM users WHERE id_user = ?";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute([$user_id]);
-    $verified = $stmt->fetch()['verified'];
-    if($verified == 0){
+    if(!is_admin()){
         echo '<script type="text/javascript">'; 
-        echo 'alert("You can\'t use this option until you are verified");'; 
+        echo 'alert("You can\'t use this option, you are not an administrator.");'; 
         echo 'window.location.href = "index.php";';
         echo '</script>';
     }else{
 ?>
-<h1>Urejanje in dodajanje izdelkov</h1>
+<h1>Urejanje izdelkov</h1>
 <div>
     <div>
-        <form action="product_add.php" method="GET">
-            <button type="submit" class="btn btn-info">Dodaj izdelek</button>
-        </form>
-    </div>
-    <div>
     <?php
-        $query = "SELECT * FROM products WHERE user_id = ?;";
+        $query = "SELECT * FROM products";
         $stmt = $pdo->prepare($query);
-        $stmt->execute([$user_id]);
+        $stmt->execute();
 
         while($r = $stmt->fetch()){
             echo '<div class="container" style="border: 1px solid black">';
@@ -38,7 +31,13 @@
                 echo '<form action="product_delete_db.php" method="POST" class="form-group">';
                 echo '<input type="hidden" name="product_id" value="'.$r['id_product'].'" class="form-control"/>';
                 echo '<button type="submit" class="btn btn-danger">Delete</button>';
-            echo '</form></ul></div>';
+            echo '</form>';
+            echo '<form action="product.php" method="POST" class="form-group">';
+                echo '<input type="hidden" name="product_id" value="'.$r['id_product'].'" class="form-control"/>';
+                echo '<input type="hidden" name="user_id" value="'.$user_id.'" class="form-control"/>';
+                echo '<button type="submit" class="btn btn-link">Oglej si podrobnosti o izdelku</button>';
+            echo '</form>';
+            echo '</ul></div>';
         }
     }
     ?>

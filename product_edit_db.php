@@ -17,7 +17,10 @@
         header("Location: index.php");
         die();
     }
+    if(is_admin()){
+        header("Location: admin_products_all.php");
+    }else{
+        header("Location: product_add_edit.php");
+    }
     
-    header("Location: product_add_edit.php");
-
 ?>

@@ -47,6 +47,9 @@
                               <li class="nav-item">
                                  <a class="nav-link" href="verify.php">Verifikacija</a>
                               </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="admin_products_all.php">Vsi produkti</a>
+                              </li>
                         <?php
                            }
                         ?>

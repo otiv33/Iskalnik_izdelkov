@@ -30,9 +30,9 @@ CREATE TABLE users (
     store_id INT,
     PRIMARY KEY (id_user),
     FOREIGN KEY (user_type_id) REFERENCES user_types(id_user_type)
-    ON DELETE RESTRICT ON UPDATE RESTRICT,
+    ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (store_id) REFERENCES stores(id_store)
-    ON DELETE RESTRICT ON UPDATE RESTRICT
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE products (
@@ -49,9 +49,9 @@ CREATE TABLE products (
     date_modify Timestamp NOT NULL,
     PRIMARY KEY (id_product),
     FOREIGN KEY (user_id) REFERENCES users(id_user)
-    ON DELETE RESTRICT ON UPDATE RESTRICT,
+    ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (store_id) REFERENCES stores(id_store)
-    ON DELETE RESTRICT ON UPDATE RESTRICT
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE favourites (
@@ -60,9 +60,9 @@ CREATE TABLE favourites (
     user_id INT NOT NULL,
     PRIMARY KEY (id_favourite),
     FOREIGN KEY (product_id) REFERENCES products(id_product)
-    ON DELETE RESTRICT ON UPDATE RESTRICT,
+    ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id_user)
-    ON DELETE RESTRICT ON UPDATE RESTRICT
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /*Insert default types*/

@@ -1,6 +1,7 @@
 <?php
     include_once "session.php";
     include_once "db.php";
+    adminOnly();
 
     $user_id = $_POST['user_id'];
     

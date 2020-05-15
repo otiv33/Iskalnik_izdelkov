@@ -2,18 +2,17 @@
       </div>
    </section>
    <!--================Blog Area end =================-->
-
-    <hr/>
-
+<br/>
    <!-- footer part start-->
-   <footer class="footer-area">
+   <footer class="footer-area" style="background-color: #292726; color:white;">
+   <hr/>
       <div class="container">
          <div class="row justify-content-between">
             <div class="col-xl-4 col-sm-6 col-lg-4">
                <div class="single-footer-widget footer_1">
-                  <h4>About Us</h4>
-                  <p>asdasdas asf assf aw dad</p>
-                  <p class="mt-3">The more effort you put into improving your skills, the bigger the stil now</p>
+                  <h4>O nas</h4>
+                  <p>Ta spletna stran je namenjena iskanju raznih izdelkov.</p>
+                  <p class="mt-3">Prav tako je mišljena za lastnike trgovin da lahko objavijo njihove izdelke.</p>
                </div>
             </div>
             <div class="col-xl-3 col-sm-6 col-lg-4">
@@ -21,13 +20,13 @@
                   <h4>Contact us</h4>
                   <div class="contact_info">
                      <span class="ti-home"></span>
-                     <h5>Los angeles, United States</h5>
-                     <p>659, Rocky beach bullevard, santa monica, Rocky beach, USA.</p>
+                     <h5>Slovenija</h5>
+                     <p>Internetna ulica 10</p>
                   </div>
                   <div class="contact_info">
                      <span class="ti-headphone-alt"></span>
                      <h5>+44 6532 986 652</h5>
-                     <p>Mon to Fri 9am to 6 pm.</p>
+                     <p>Ponedeljka do petka od 12h do 15h</p>
                   </div>
                </div>
             </div>
@@ -35,8 +34,7 @@
             <div class="col-xl-4 col-sm-8 col-lg-4">
                <div class="single-footer-widget footer_3">
                   <h4>Newsletter</h4>
-                  <p>Stay updated with our latest trends The more effort you put into improving your skills, the bigger
-                     the payoff you will get realize that things.</p>
+                  <p>Prijavite se na naš novičnik.</p>
                   <div class="form-wrap" id="mc_embed_signup">
                      <form target="_blank"
                         action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
@@ -52,18 +50,6 @@
                         <div class="info"></div>
                      </form>
                   </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="copyright_part">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-lg-12 text-center">
-                  <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
                </div>
             </div>
          </div>

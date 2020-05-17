@@ -12,7 +12,7 @@
     <input type="text" name="site_link_url" placeholder="Vnesite URL do vaše spletne strani" class="form-control"/><br/>
     <input type="text" name="online_store_link_url" placeholder="Vnesite URL do vaše spletne trgovine" class="form-control"/><br/>
     <input type="hidden" name="user_id" value="<?php echo $user_id ?>" class="form-control"/><br/>
-    <input type="submit" value="Registracija" class="form-control"/><br/>
+    <input type="submit" value="Registracija" class="btn btn-primary form-control"/><br/>
 </form>
 
 <?php

@@ -6,7 +6,7 @@
 
     if(!empty($search_input)){
         
-        $query = 'SELECT * FROM products WHERE LOWER(product_title) LIKE LOWER("%'.$search_input.'%") OR LOWER(description) LIKE LOWER("%'.$search_input.'%")';
+        $query = 'SELECT * FROM products WHERE LOWER(product_title) LIKE LOWER("%'.$search_input.'%") OR LOWER(product_description) LIKE LOWER("%'.$search_input.'%")';
         $stmt = $pdo->prepare($query);
         $stmt->execute();
     }else{
@@ -33,7 +33,7 @@
         echo    '<img class="card-img-top" src="'.$r['product_image'].'" alt="'.$r['product_image_description'].'">';
         echo    '<div class="card-body">';
         echo        '<h5 class="card-title"><b>'.$r['product_title'].'</b></h5>';
-        echo        '<p class="card-text">'.$r['description'].'</p>';
+        echo        '<p class="card-text">'.$r['product_description'].'</p>';
         echo        '<p class="card-text"><b>'.$r['price'].'€</b></p>';
         echo        '<form action="product.php" method="POST"><button type="submit" class="btn btn-link" name="product_id" value="'.$r['id_product'].'">Poglej ponudbo</button></form>';
         echo    '</div>';

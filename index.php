@@ -2,6 +2,8 @@
     include_once "header.php";
     include_once "db.php";
 
+    storeOwnerCheckRegisteredStore();
+
     $query = "SELECT id_product, product_image, product_image_description, product_title, product_description, price FROM products ORDER BY RAND() LIMIT 10;";
     $stmt = $pdo->prepare($query);
     $stmt->execute();

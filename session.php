@@ -31,6 +31,14 @@
         }
     }
 
+    function storeOwnerCheckRegisteredStore(){
+        if(isset($_SESSION['user_type'])){
+            if ($_SESSION['user_type'] == "Store owner" && empty($_SESSION['store_id'])) {
+                header("Location: register_store.php");
+            }
+        }
+    }
+
     // KR NEKI treba preverit za uporabnost
     function product_owner($product_id) {
         require "db.php";

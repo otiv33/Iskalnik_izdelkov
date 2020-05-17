@@ -68,7 +68,7 @@
                 </hr>
                 <h4>Trgovina</h4>
                 <p>Ime trgovine : <?php echo $r['title']?></p>
-                <p>Opis trgovine : <?php echo $r['product_description']?></p>
+                <p>Opis trgovine : <?php echo $r['description']?></p>
                 <p style="display: inline-block;max-width: 30%;height: 1.5em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap; ">Lokacija : <a href="<?php echo $r['location']?>"><?php echo $r['location']?></a></p>
                 <p>Spletna stran trgovine : <a href="<?php echo $r['site_link_url']?>"><?php echo $r['site_link_url']?></a></p>
                 <p>Povezava do spletne trgovine : <a href="<?php echo $r['online_store_link_url']?>"><?php echo $r['online_store_link_url']?></a></p>

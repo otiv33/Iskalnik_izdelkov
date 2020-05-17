@@ -30,8 +30,13 @@
                 $stmt->execute([$user['user_type_id']]);
                 $user_type = $stmt->fetch();
                 $_SESSION['user_type'] = $user_type['type'];
+                $query = "SELECT store_id FROM users WHERE id_user = ?;";
+                $stmt = $pdo->prepare($query);
+                $stmt->execute([$user['id_user']]);
+                $user_store_id = $stmt->fetch();
+                $_SESSION['store_id'] = $user_store_id['store_id'];
                 
-                if(!empty($name) && $_SESSION['user_type'] == "Store owner"){
+                if(!empty($name) && $_SESSION['user_type'] == "Store owner" && empty($_SESSION['store_id'])){
                     //alert("Registration successfull, you will be automatically logged in.\n You will be redirected to the store registration site.");
                     header("Location: register_store.php");
                     die();

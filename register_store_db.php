@@ -14,6 +14,7 @@
         $stmt = $pdo->prepare($query);
         $stmt->execute([$title, $description, $location, $site_link_url, $online_store_link_url]);
         $store_id = $pdo->lastInsertId();
+        $_SESSION['store_id'] = $store_id; //Update session variable because of checks
 
         $query = "UPDATE users SET store_id = ? WHERE id_user = ?";
         $stmt = $pdo->prepare($query);

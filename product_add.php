@@ -2,6 +2,8 @@
     include_once "header.php";
     include_once "db.php";
 
+    storeOwnerCheckRegisteredStore();
+
     $user_id = $_SESSION['user_id'];
     $date_add = date('Y-m-d h:m:s');
     $date_modify = date('Y-m-d h:m:s');

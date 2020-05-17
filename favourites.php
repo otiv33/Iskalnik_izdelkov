@@ -16,7 +16,7 @@
     <table class="table table-striped table-sm">
         <thead>
             <tr>
-                <th></th>
+                
                 <th></th>
                 <th>Product title</th>
                 <th>Description</th>
@@ -30,13 +30,13 @@
     <tbody>
     <?php
         while($r = $stmt->fetch()){
-            echo '<tr>';
+            echo '<tr onClick="document.forms[\'product-form-'.$r['id_product'].'\'].submit();">';
 
-                echo '<td><form action="product.php" method="POST" class="form-group">';
+                echo '<form name="product-form-'.$r['id_product'].'" action="product.php" method="POST" class="form-group">';
                     echo '<input type="hidden" name="product_id" value="'.$r['id_product'].'" class="form-control"/>';
                     echo '<input type="hidden" name="user_id" value="'.$user_id.'" class="form-control"/>';
-                    echo '<button type="submit" class="btn btn-link">Oglej si izdelek</button>';
-                echo '</form></td>';
+                    //echo '<button type="submit" class="btn btn-link">Oglej si izdelek</button>';
+                echo '</form>';
 
                 echo '<td><form action="favourites_remove_db.php" method="POST" class="form-group">';
                     echo '<input type="hidden" name="product_id" value="'.$r['id_product'].'" class="form-control"/>';

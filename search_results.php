@@ -29,14 +29,13 @@
         echo '<div class="col-5">';
         echo '<div class="card-deck">';
 
-        echo '<div class="card p-2">';
+        echo '<div class="card p-2" onClick="document.forms[\'product-form\'].submit();">';
         echo    '<img class="card-img-top" src="'.$r['product_image'].'" alt="'.$r['product_image_description'].'">';
         echo    '<div class="card-body">';
         echo        '<h5 class="card-title"><b>'.$r['product_title'].'</b></h5>';
         echo        '<p class="card-text">'.$r['product_description'].'</p>';
         echo        '<p class="card-text"><b>'.$r['price'].'€</b></p>';
-        echo        '<form action="product.php" method="POST"><button type="submit" class="btn btn-link" name="product_id" value="'.$r['id_product'].'">Poglej ponudbo</button></form>';
-        echo    '</div>';
+        echo        '<form name="product-form" action="product.php" method="POST"><input type="hidden" name="product_id" value="'.$r['id_product'].'"/></form>';        echo    '</div>';
         echo '</div>';
 
         echo '</div>';

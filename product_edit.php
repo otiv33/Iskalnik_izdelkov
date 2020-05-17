@@ -25,7 +25,7 @@
 <form action="product_edit_db.php" method="POST" class="form-group">
     <input type="hidden" name="product_id" value="<?php echo $product_id ?>" class="form-control"/>
     <input type="text" name="product_title" required="required" value="<?php echo $prod['product_title'] ?>" class="form-control"/><br/>
-    <input type="text" name="description" required="required" value="<?php echo $prod['description'] ?>" class="form-control"/><br/>
+    <input type="text" name="product_description" required="required" value="<?php echo $prod['product_description'] ?>" class="form-control"/><br/>
     <input type="number" name="price" step="0.01" min="0" max="1000000000000000" required="required" value="<?php echo $prod['price'] ?>" class="form-control"/><br/>
     <input type="hidden" name="date_modify" value="<?php echo $date_modify ?>" class="form-control"/>
     <input type="submit" value="Potrdi spremembe" class="form-control"/><br/>

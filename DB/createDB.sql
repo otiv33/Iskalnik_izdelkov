@@ -38,7 +38,7 @@ CREATE TABLE users (
 CREATE TABLE products (
     id_product INT NOT NULL AUTO_INCREMENT,
     product_title VARCHAR(100) NOT NULL,
-    description TEXT NOT NULL,
+    product_description TEXT NOT NULL,
     price DECIMAL(13,2) NOT NULL,
     store_id INT NOT NULL,
     user_id INT NOT NULL,

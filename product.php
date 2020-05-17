@@ -27,7 +27,7 @@
 
 <div class="container">
 
-        <div class="col-md-12" style="text-align:center">
+        <div class="col-md-8 container">
         <div class="row">
             <div class="col-md-4">
                 <?php 
@@ -54,21 +54,30 @@
             <div class="col-md-4">
                 <h1> <?php echo $r['product_title']?></h2>
             </div>
+
         </div>
-            
-            <hr/>
-            <p><b>Opis : <?php echo $r['description']?> </b></p>
-            <p>Cena : <?php echo $r['price']?>€</p> 
-            <p>Povezava URL izdelka v spletni trgovini : <a href="<?php echo $r['online_store_product_url']?>"><?php echo $r['online_store_product_url']?></a></p>
-            <p>Dodano : <?php echo $r['date_add']?> </p>
-            <p>Spremenjeno : <?php echo $r['date_modify']?></p>
-            <p>Ime trgovine : <?php echo $r['title']?></p>
-            <p>Opis trgovine : <?php echo $r['description']?></p>
-            <p style="display: inline-block;max-width: 30%;height: 1.5em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap; ">Lokacija : <a href="<?php echo $r['location']?>"><?php echo $r['location']?></a></p>
-            <p>Spletna stran trgovine : <a href="<?php echo $r['site_link_url']?>"><?php echo $r['site_link_url']?></a></p>
-            <p>Povezava do spletne trgovine : <a href="<?php echo $r['online_store_link_url']?>"><?php echo $r['online_store_link_url']?></a></p>
-            <p>Slika izdelka : </p>
-            <img src="<?php echo $r['product_image']?>" alt="<?php echo $r['product_image_description']?>" width="40%">
+
+        <br/>
+            <div class="container bg-light p-3">
+                <h4>Izdelek</h4>
+                <p>Opis : <?php echo $r['product_description']?> </p>
+                <p>Cena : <?php echo $r['price']?>€</p> 
+                <p>Povezava URL izdelka v spletni trgovini : <a href="<?php echo $r['online_store_product_url']?>"><?php echo $r['online_store_product_url']?></a></p>
+                <p>Dodano : <?php echo $r['date_add']?> </p>
+                <p>Spremenjeno : <?php echo $r['date_modify']?></p>
+                </hr>
+                <h4>Trgovina</h4>
+                <p>Ime trgovine : <?php echo $r['title']?></p>
+                <p>Opis trgovine : <?php echo $r['product_description']?></p>
+                <p style="display: inline-block;max-width: 30%;height: 1.5em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap; ">Lokacija : <a href="<?php echo $r['location']?>"><?php echo $r['location']?></a></p>
+                <p>Spletna stran trgovine : <a href="<?php echo $r['site_link_url']?>"><?php echo $r['site_link_url']?></a></p>
+                <p>Povezava do spletne trgovine : <a href="<?php echo $r['online_store_link_url']?>"><?php echo $r['online_store_link_url']?></a></p>
+                <p>Slika izdelka : </p>
+                <div class="d-flex justify-content-center">
+                    <img src="<?php echo $r['product_image']?>" alt="<?php echo $r['product_image_description']?>" width="40%">
+                </div>
+                <br/>
+            </div>
         </div>
 
 

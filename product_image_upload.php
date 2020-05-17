@@ -1,6 +1,6 @@
 <?php
 include_once "session.php";
-
+include_once "alert.php";
 
 $picture_description = $_POST['product_image_description'];
 
@@ -43,13 +43,10 @@ if ($uploadOk == 1) {
     if (move_uploaded_file($_FILES["product_image"]["tmp_name"], $target_file)) {
         $product_image = $target_file; //WE ASSIGN THE VALUE for product image
     }else{
-        throw new Exception('Upload not succsessful');
-        header("Location: product_add_edit.php");
-        die();
+        consoleLog("File could not be copied to folder");
+
     }
 }else{
-    throw new Exception('Upload not OK');
-    header("Location: product_add_edit.php");
-    die();
+    consoleLog("Product upload not OK");
 }
 ?>

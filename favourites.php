@@ -10,32 +10,51 @@
 
 ?>
 <h1>Vaš seznam priljubljenih</h1>
-<div>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Product title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Online store product URL</th>
+                <th>Date added</th>
+                <th>Date modified</th>
+                <th>Product image</th>
+            </tr>
+        </thead>
+    <tbody>
     <?php
         while($r = $stmt->fetch()){
-            echo '<div class="container">';
-                echo '<div class="d-flex justify-content-start" style="border: 1px solid black"><ul>';
-                    echo '<li><b>Product : </b>'.$r['product_title'].', '.$r['description'].', '.$r['price'].'€, '.$r['online_store_product_url'].', '.$r['date_add'].', '.$r['date_modify'].'</li>';
-                echo '<div class="d-flex justify-content-start">';
-                    echo '<form action="product.php" method="POST" class="form-group">';
-                        echo '<input type="hidden" name="product_id" value="'.$r['id_product'].'" class="form-control"/>';
-                        echo '<input type="hidden" name="user_id" value="'.$user_id.'" class="form-control"/>';
-                        echo '<button type="submit" class="btn btn-link">Oglej si podrobnosti o izdelku</button>';
-                    echo '</form>';
+            echo '<tr>';
 
-                    echo '<form action="favourites_remove_db.php" method="POST" class="form-group">';
-                        echo '<input type="hidden" name="product_id" value="'.$r['id_product'].'" class="form-control"/>';
-                        echo '<input type="hidden" name="user_id" value="'.$user_id.'" class="form-control"/>';
-                        echo '<button type="submit" class="btn btn-danger">Odstrani iz priljubljenih</button>';
-                    echo '</form>';
-                echo '</div>';
+                echo '<td><form action="product.php" method="POST" class="form-group">';
+                    echo '<input type="hidden" name="product_id" value="'.$r['id_product'].'" class="form-control"/>';
+                    echo '<input type="hidden" name="user_id" value="'.$user_id.'" class="form-control"/>';
+                    echo '<button type="submit" class="btn btn-link">Oglej si izdelek</button>';
+                echo '</form></td>';
 
+                echo '<td><form action="favourites_remove_db.php" method="POST" class="form-group">';
+                    echo '<input type="hidden" name="product_id" value="'.$r['id_product'].'" class="form-control"/>';
+                    echo '<input type="hidden" name="user_id" value="'.$user_id.'" class="form-control"/>';
+                    echo '<button type="submit" class="btn btn-danger">Odstrani iz priljubljenih</button>';
+                echo '</form></td>';
 
-            echo '</ul></div>';
-            echo '</div>';
+                echo '<td>'.$r['product_title'].'</td>'; 
+                echo '<td>'.$r['product_description'].'</td>'; 
+                echo '<td>'.$r['price'].'€</td>'; 
+                echo '<td>'.$r['online_store_product_url'].'</td>'; 
+                echo '<td>'.$r['date_add'].'</td>'; 
+                echo '<td>'.$r['date_modify'];
+                echo '<td><a href="'.$r['product_image'].'"><img src="'.$r['product_image'].'" width="20%"></a><td>';
+
+            echo '</tr>';
         }
     ?>
-    </div>
+    </tbody>
+    </table>
 </div>
 
 <?php

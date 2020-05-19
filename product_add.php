@@ -28,9 +28,10 @@
         <br/>
         <text>Opis slike : </text>
         <input type="text" name="product_image_description" placeholder="Vnesi opis slike"/><br />
-    </div>
+    </div><br/>
+    Povezava do izdelka v spletni trgovini : <input type="text" name="online_store_product_url" required="required" placeholder="Vnesi povezavo do izdelka iz spletne trgovine"class="form-control"/><br/>
     <input type="hidden" name="date_add" value="<?php echo $date_add ?>" class="form-control"/>
-    <input type="hidden" name="date_modify" value="<?php echo $date_modify ?>" class="form-control"/></br>
+    <input type="hidden" name="date_modify" value="<?php echo $date_modify ?>" class="form-control"/>
     <input type="submit" value="Dodaj" class="form-control btn btn-primary"/><br/>
 </form>
 

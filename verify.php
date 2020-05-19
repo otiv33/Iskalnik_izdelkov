@@ -10,6 +10,7 @@
         <thead>
             <tr>
                 <th></th>
+                <th></th>
                 <th>Name</th>
                 <th>Surname</th>
                 <th>Email</th>
@@ -33,6 +34,11 @@
                 echo '<td><form action="verify_db.php" method="POST" class="form-group">';
                     echo '<input type="hidden" name="user_id" value="'.$r['id_user'].'" class="form-control"/>';
                     echo '<button type="submit" class="btn btn-success">Verify</button>';
+                echo '</form></td>';
+
+                echo '<td><form action="verify_remove_db.php" method="POST" class="form-group">';
+                    echo '<input type="hidden" name="user_id" value="'.$r['id_user'].'" class="form-control"/>';
+                    echo '<button type="submit" onClick="alert(\"Are you sure you want to remove this user?\");" class="btn btn-danger">Remove</button>';
                 echo '</form></td>';
 
                 echo '<td>'.$r['name'].'</td>'; 

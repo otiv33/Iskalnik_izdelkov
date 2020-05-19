@@ -1,22 +1,26 @@
 <?php
     include_once "session.php";
     include_once "db.php";
+    include_once "alert.php";
 
-    $product_id = $_POST['product_id'];
+    $product_id = $_GET['product_id'];
+    $product_image = $_GET['product_image'];
 
     if(!empty($product_id)){
-        $query = "DELETE FROM products WHERE id_product = ?";
+        $query = "UPDATE products SET product_image = \"\", product_image_description = \"\" WHERE id_product = ?";
         $stmt = $pdo->prepare($query);
         $stmt->execute([$product_id]);
-
+        if (!unlink($product_image)) {  
+            consoleLog("$product_image cannot be deleted due to an error");  
+        }
+        else {  
+            consoleLog("$product_image has been deleted");  
+        }
     }else{
         header("Location: index.php");
         die();
     }
-    if(is_admin()){
-        header("Location: admin_products_all.php");
-    }else{
-        header("Location: product_add_edit.php");
-    }
+    header("Location: product_edit.php?product_id=".$product_id);
+
 
 ?>

@@ -9,6 +9,7 @@
     $stmt->execute();
 ?>
     <link rel="stylesheet" type="text/css" href="css/myCSS.css">
+    <script type="text/javascript" src="js/index.js"></script>
 
     <div class="conatiner-fluid ">
         <h1 class="d-flex justify-content-center">Dober dan <?php if(!empty($_SESSION['name']) && !empty($_SESSION['surname'])) echo $_SESSION['name'].' '.$_SESSION['surname']?></h1>
@@ -35,15 +36,16 @@
                     $x=$x+$x;
                 }
 
-                echo '<div class="card p-2" onClick="document.forms[\'product-form\'].submit();">';
+                echo '<div class="card p-2" onClick="document.forms[\'product-form-'.$r['id_product'].'\'].submit();" onTap="document.forms[\'product-form-'.$r['id_product'].'\'].submit();">'; // Has javascript form trigger
                 echo        '<img class="card-img-top" src="'.$r['product_image'].'" alt="'.$r['product_image_description'].'">';
                 echo    '<div class="card-body">';
                 echo        '<h5 class="card-title"><b>'.$r['product_title'].'</b></h5>';
                 echo        '<p class="card-text">'.$r['product_description'].'</p>';
                 echo        '<p class="card-text"><b>'.$r['price'].'€</b></p>';
-                echo        '<form name="product-form" action="product.php" method="POST"><input type="hidden" name="product_id" value="'.$r['id_product'].'"/></form>';
+                echo        '<form name="product-form-'.$r['id_product'].'" action="product.php" method="POST"><input type="hidden" name="product_id" value="'.$r['id_product'].'"/></form>';
                 echo    '</div>';
                 echo '</div>';
+
 
                 $i++;
             }

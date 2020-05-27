@@ -55,78 +55,72 @@
    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9JPN9Z"
    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    <!-- End Google Tag Manager (noscript) -->
-   <!--::header part start::-->
+   <!--::header part start::   -->
    <header class="main_menu single_page_menu">
-      <div class="container">
-         <div class="row align-items-center">
-            <div class="col-lg-12">
-               <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                  <a class="navbar-brand" href="index.php">Iskalnik izdelkov</a>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <a class="navbar-brand" href="index.php">Iskalnik izdelkov</a>
 
-                  <button class="navbar-toggler" type="button" data-toggle="collapse"
-                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                     aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon"></span>
-                  </button>
+         <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
 
-                  <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                     <ul class="navbar-nav mr-auto">
+         <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                  <a class="nav-link" href="index.php">Domov</a>
+               </li>
+            <?php
+               if(isset($_SESSION['user_id'])){
+            ?>
+               <?php
+                  if (is_admin()) {
+               ?>
                      <li class="nav-item">
-                           <a class="nav-link" href="index.php">Domov</a>
-                        </li>
-                     <?php
-                        if(isset($_SESSION['user_id'])){
-                     ?>
-                        <?php
-                           if (is_admin()) {
-                        ?>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="verify.php">Verifikacija</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="admin_products_all.php">Vsi produkti</a>
-                              </li>
-                        <?php
-                           }
-                        ?>
-                        <?php
-                           if (is_store_owner()) {
-                        ?>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="product_add_edit.php">Uredi ali dodaj izdelek</a>
-                              </li>
-                        <?php
-                           }
-                        ?>
-                        <li class="nav-item">
-                           <a class="nav-link" href="favourites.php">Priljubljeni</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="logout.php">Odjava</a>
-                        </li>
-                     <?php
-                        }
-                        else{
-                     ?>
-                        <li class="nav-item">
-                           <a class="nav-link" href="login.php">Prijava</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="register.php">Registracija</a>
-                        </li>      
-                     <?php
-                        }
-                     ?>
-                     </ul>
-                        <form action="search_results.php" method="POST" class="form-inline my-2 my-lg-0">
-                           <input class="form-control mr-sm-2" name="search_input" type="search" placeholder="Search" aria-label="Search">
-                           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Išči</button>
-                        </form>
-                  </div>
-               </nav>
-            </div>
+                        <a class="nav-link" href="verify.php">Verifikacija</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="admin_products_all.php">Vsi produkti</a>
+                     </li>
+               <?php
+                  }
+               ?>
+               <?php
+                  if (is_store_owner()) {
+               ?>
+                     <li class="nav-item">
+                        <a class="nav-link" href="product_add_edit.php">Uredi ali dodaj izdelek</a>
+                     </li>
+               <?php
+                  }
+               ?>
+               <li class="nav-item">
+                  <a class="nav-link" href="favourites.php">Priljubljeni</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="logout.php">Odjava</a>
+               </li>
+            <?php
+               }
+               else{
+            ?>
+               <li class="nav-item">
+                  <a class="nav-link" href="login.php">Prijava</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="register.php">Registracija</a>
+               </li>      
+            <?php
+               }
+            ?>
+            </ul>
+               <form action="search_results.php" method="POST" class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" name="search_input" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Išči</button>
+               </form>
          </div>
-      </div>
+      </nav>
    </header>
    <!-- Header part end-->
    <br/>

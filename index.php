@@ -63,6 +63,5 @@
 
 <?php
     include_once "footer.php";
-    //<button type="submit" class="btn btn-link" name="product_id" value="'.$r['id_product'].'">Poglej ponudbo</button>
 ?>
 

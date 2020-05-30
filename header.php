@@ -70,7 +70,7 @@
             <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                   <a class="nav-link" href="index.php">Domov</a>
-               </li>
+            </li>
             <?php
                if(isset($_SESSION['user_id'])){
             ?>

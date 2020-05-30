@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="css/myCSS.css">
 <?php
     include_once "header.php";
     include_once "db.php";
@@ -9,16 +10,15 @@
         $query = 'SELECT * FROM products WHERE LOWER(product_title) LIKE LOWER("%'.$search_input.'%") OR LOWER(product_description) LIKE LOWER("%'.$search_input.'%")';
         $stmt = $pdo->prepare($query);
         $stmt->execute();
+        echo '<h3 style="text-align:center">Top results for keyword : "'.$search_input.'"</h3>';
     }else{
-        $query = "SELECT TOP 100 * FROM products";
+        $query = "SELECT * FROM products LIMIT 100";
         $stmt = $pdo->prepare($query);
         $stmt->execute();
+        echo '<h3 style="text-align:center">Search text was empty. Here are the top 100 products.</h3>';
     }
 ?>
 
-<link rel="stylesheet" type="text/css" href="css/myCSS.css">
-
-<h3 style="text-align:center">Top results for keyword : "<?php echo $search_input?>"</h3>
 <hr/>
 <div class="container-fluid">
     <?php while($r = $stmt->fetch()){

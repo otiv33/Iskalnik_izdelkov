@@ -9,7 +9,7 @@
     Priimek :<input type="text" name="surname" required="required" placeholder="Vnesi priimek" class="form-control"/><br/>
     Email : <input type="email" name="email" required="required" placeholder="Vnesi elektronski naslov" class="form-control"/><br/>
     Geslo : <input type="password" name="pass" required="required" placeholder="Vnesi geslo" class="form-control"/><br/>
-    Ponovi geslo :<input type="password" name="pass2" required="required" placeholder="Ponovi geslo" class="form-control"/><br/>
+    Ponovi geslo :<input type="password" name="pass2" required="required" minlength="6" placeholder="Ponovi geslo" class="form-control"/><br/>
     <label>Izberite vrsto računa</label>
     <select id="user_type" name="user_type" required="required" class="form-control">
         <option selected value="user">Navaden uporabnik</option>

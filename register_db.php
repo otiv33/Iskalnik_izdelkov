@@ -18,10 +18,11 @@
         die();
     }
 
-    $query = "SELECT email FROM users WHERE email = ?";
+    $query = "SELECT 1 FROM users WHERE email = ?";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$email]);
-    if(!isset($stmt->fetch['email'])){
+    $duplMail = $stmt->fetch();
+    if($duplMail){
         echo '<h1>This email already exists!</h1>';
         echo '<button><a href="register.php">Go back to registration</a></button>';
     }else{

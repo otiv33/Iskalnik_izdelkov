@@ -39,19 +39,4 @@
         }
     }
 
-    // KR NEKI treba preverit za uporabnost
-    function product_owner($product_id) {
-        require "db.php";
-        $query = "SELECT * FROM products WHERE id = ?";
-        $stmt = $pdo->prepare($query);
-        $stmt->execute([$product_id]);
-        $product = $stmt->fetch();
-
-        if ($location['user_id'] == $user_id){
-            return true;
-        }else {
-            return false;
-        }
-    }
-
 ?>

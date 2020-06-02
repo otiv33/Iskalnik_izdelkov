@@ -127,5 +127,4 @@
    <br/>
    
    <!-- Start of content -->
-   <section class="blog_area single-post-area section_padding">
       <div class="container">

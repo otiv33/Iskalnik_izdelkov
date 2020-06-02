@@ -1,6 +1,6 @@
 
       </div>
-   </section>
+
    <!--================Blog Area end =================-->
 <br/>
    <!-- footer part start-->

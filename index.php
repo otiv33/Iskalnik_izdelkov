@@ -21,7 +21,7 @@
                 <div class="card-deck">
         <?php
             $i = 0;
-            $x = 4; //Number of cards in one row
+            $x = 3; //Number of cards in one row
             $flag = false;
             while($r = $stmt->fetch()){
                 if(empty($r['product_image']))
@@ -37,7 +37,7 @@
                     $x=$x+$x;
                 }
 
-                echo '<div class="card p-2" onClick="document.forms[\'product-form-'.$r['id_product'].'\'].submit();" onTap="document.forms[\'product-form-'.$r['id_product'].'\'].submit();">'; // Has javascript form trigger
+                echo '<div class="card p-2 col-md-3 col-sm-3" onClick="document.forms[\'product-form-'.$r['id_product'].'\'].submit();" onTap="document.forms[\'product-form-'.$r['id_product'].'\'].submit();">'; // Has javascript form trigger
                 echo        '<img class="card-img-top" src="'.$r['product_image'].'" alt="'.$r['product_image_description'].'">';
                 echo    '<div class="card-body">';
                 echo        '<h5 class="card-title"><b>'.$r['product_title'].'</b></h5>';

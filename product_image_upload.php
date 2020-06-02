@@ -5,24 +5,25 @@ include_once "alert.php";
 //Execute if there is a file that was sent
 if(!empty($_FILES["product_image"]["name"]) ){
     //Check if there is already a file
-    $product_id = $_POST['product_id'];
-    $query = "SELECT product_image FROM products WHERE id_product = ?";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute([$product_id]);
-    $existing_image = $stmt->fetch()['product_image'];
-    
-    if(!empty($existing_image)){
-        //Delete image from DB
-        $query = "UPDATE products SET product_image = \"\", product_image_description = \"\" WHERE id_product = ?";
+    if(isset($_POST['product_id'])){
+        $product_id = $_POST['product_id'];
+        $query = "SELECT product_image FROM products WHERE id_product = ?";
         $stmt = $pdo->prepare($query);
         $stmt->execute([$product_id]);
-        //Delete image from folder
-        if (!unlink($existing_image)) {  
-            consoleLog("$existing_image cannot be deleted due to an error");  
+        $existing_image = $stmt->fetch()['product_image'];
+        if(!empty($existing_image)){
+            //Delete image from DB
+            $query = "UPDATE products SET product_image = \"\", product_image_description = \"\" WHERE id_product = ?";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute([$product_id]);
+            //Delete image from folder
+            if (!unlink($existing_image)) {  
+                consoleLog("$existing_image cannot be deleted due to an error");  
+            }
+            else {  
+                consoleLog("$existing_image has been deleted");  
+            }  
         }
-        else {  
-            consoleLog("$existing_image has been deleted");  
-        }  
     }
 
     //Standard upload procedure

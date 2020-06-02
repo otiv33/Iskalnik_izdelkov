@@ -21,7 +21,7 @@
                 <div class="card-deck">
         <?php
             $i = 0;
-            $x = 3; //Number of cards in one row
+            $x = 4; //Number of cards in one row
             $flag = false;
             while($r = $stmt->fetch()){
                 if(empty($r['product_image']))

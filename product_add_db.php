@@ -1,5 +1,5 @@
 <?php
-    //include_once "session.php";
+    include_once "session.php";
     include_once "db.php";
 
     //Image upload

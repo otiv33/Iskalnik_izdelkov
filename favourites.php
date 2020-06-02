@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     include_once "header.php";
     include_once "db.php";
 
@@ -11,9 +12,10 @@
     $stmt->execute([$user_id]);
 
 ?>
+
 <h1>Vaš seznam priljubljenih</h1>
 <div class="table-responsive">
-    <table class="table table-striped table-sm">
+    <table class="table table-striped table-hover table-sm">
         <thead>
             <tr>
                 
@@ -30,7 +32,7 @@
     <tbody>
     <?php
         while($r = $stmt->fetch()){
-            echo '<tr onClick="document.forms[\'product-form-'.$r['id_product'].'\'].submit();">';
+            echo '<tr data-toggle="tooltip" title="Klikni na izdelek za ogled podrobnosti." onClick="document.forms[\'product-form-'.$r['id_product'].'\'].submit();">';
 
                 echo '<form name="product-form-'.$r['id_product'].'" action="product.php" method="POST" class="form-group">';
                     echo '<input type="hidden" name="product_id" value="'.$r['id_product'].'" class="form-control"/>';

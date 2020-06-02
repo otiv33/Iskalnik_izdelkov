@@ -16,7 +16,7 @@
 <h1>Urejanje izdelkov</h1>
 
     <div class="table-responsive">
-    <table class="table table-striped table-sm">
+    <table class="table table-striped table-hover table-sm">
         <thead>
             <tr>
                 <th></th>
@@ -38,7 +38,7 @@
         $stmt->execute();
 
         while($r = $stmt->fetch()){
-            echo '<tr onClick="document.forms[\'product-form-'.$r['id_product'].'\'].submit();">';
+            echo '<tr data-toggle="tooltip" title="Klikni na izdelek za ogled podrobnosti." onClick="document.forms[\'product-form-'.$r['id_product'].'\'].submit();">';
 
                 //On click redirect to product
                 echo '<form name="product-form-'.$r['id_product'].'" action="product.php" method="POST" class="form-group">';
@@ -61,7 +61,7 @@
                 echo '<td>'.$r['product_title'].'</td>'; 
                 echo '<td>'.$r['product_description'].'</td>'; 
                 echo '<td>'.$r['price'].'€</td>'; 
-                echo '<td>'.$r['online_store_product_url'].'</td>'; 
+                echo '<td><a href="'.$r['online_store_product_url'].'">'.$r['online_store_product_url'].'</a></td>'; 
                 echo '<td>'.$r['date_add'].'</td>'; 
                 echo '<td>'.$r['date_modify'];
                 echo '<td><a href="'.$r['product_image'].'"><img src="'.$r['product_image'].'" width="20%"></a><td>';

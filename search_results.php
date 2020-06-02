@@ -1,7 +1,12 @@
 <link rel="stylesheet" type="text/css" href="css/myCSS.css">
+
 <?php
+    ob_start();
     include_once "header.php";
     include_once "db.php";
+
+    //Preveri če ima uporabnik registrirano trgovino
+    storeOwnerCheckRegisteredStore();
 
     $search_input = $_POST['search_input'];
 
@@ -45,3 +50,4 @@
     }
     ?>
 </div>
+<script type="text/javascript" src="js/index.js"></script>

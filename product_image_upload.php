@@ -26,7 +26,7 @@ if(!empty($_FILES["product_image"]["name"]) ){
         }
     }
 
-    //Standard upload procedure
+    //Standard upload procedure-------------------------------------------------------
     $picture_description = $_POST['product_image_description'];
     $target_dir = "uploads/";
     $change_name = date("Y-m-d-h-i-s")."-".$picture_description."-";

@@ -1,7 +1,9 @@
 <?php
+    ob_start();
     include_once "header.php";
     include_once "db.php";
 
+    //Preveri če ima uporabnik registrirano trgovino
     storeOwnerCheckRegisteredStore();
 
     $query = "SELECT id_product, product_image, product_image_description, product_title, product_description, price FROM products ORDER BY RAND() LIMIT 10;";
@@ -9,7 +11,6 @@
     $stmt->execute();
 ?>
     <link rel="stylesheet" type="text/css" href="css/myCSS.css">
-    <script type="text/javascript" src="js/index.js"></script>
 
     <div class="conatiner-fluid ">
         <h1 class="d-flex justify-content-center">Dober dan <?php if(!empty($_SESSION['name']) && !empty($_SESSION['surname'])) echo $_SESSION['name'].' '.$_SESSION['surname']?></h1>
@@ -61,6 +62,7 @@
 <br/>
 <br/>
 
+<script type="text/javascript" src="js/index.js"></script>
 <?php
     include_once "footer.php";
 ?>

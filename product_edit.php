@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     include_once "header.php";
     include_once "db.php";
 
@@ -37,7 +38,7 @@
         if(!empty($prod['product_image'])){
             echo '<div class="flexbox">
                     <text><b>An image already exists : </b></text><a href="'.$prod['product_image'].'" target="_blank"><b>'.$prod['product_image'].'</b></a>
-                    <a href="product_delete_db.php?product_id='.$prod['id_product'].'&product_image='.$prod['product_image'].'" class="btn btn-danger">Delete image</a>
+                    <a href="product_image_delete_db.php?product_id='.$prod['id_product'].'&product_image='.$prod['product_image'].'&fromEdit=true" class="btn btn-danger">Delete image</a>
                     <br/><br/>    
                     <text>Choose a new image to change it : </text><input type="file" name="product_image" id="product_image" />
                     <br/>

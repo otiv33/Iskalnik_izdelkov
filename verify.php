@@ -6,7 +6,7 @@
 <link src="css/verify.css" type="stylesheet"/>
 <h1>Verifikacija</h1>
 <div class="table-responsive">
-    <table class="table table-striped table-sm">
+    <table class="table table-striped table-hover table-sm">
         <thead>
             <tr>
                 <th></th>
